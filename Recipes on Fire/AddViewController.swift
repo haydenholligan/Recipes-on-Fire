@@ -10,10 +10,12 @@ import UIKit
 import CoreData
 
 class AddViewController: UIViewController {
+    
+    var recipe: Recipe? = nil
 
     @IBOutlet var name: UITextField!
     @IBOutlet var ingredients: UITextView!
-    @IBOutlet var recipe: UITextView!
+    @IBOutlet var instructions: UITextView!
     @IBOutlet var numberTimesMade: UILabel!
     
     @IBOutlet var recipeImage: UIImageView!
