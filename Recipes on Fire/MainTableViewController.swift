@@ -39,6 +39,9 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
             return
         }
         
+        self.tableView.rowHeight = 60
+        self.tableView.reloadData()
+        
     }
     
     
@@ -60,7 +63,6 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source

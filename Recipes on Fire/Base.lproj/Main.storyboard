@@ -91,7 +91,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Recipe" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rPh-xv-BY9">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Instructions" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rPh-xv-BY9">
                                 <rect key="frame" x="20" y="274" width="560" height="120"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.57282377200000001" green="1" blue="0.50122652810000001" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -113,7 +113,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCP-mN-87L">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCP-mN-87L">
                                 <rect key="frame" x="519" y="84" width="28" height="28"/>
                                 <animations/>
                                 <constraints>
@@ -125,7 +125,7 @@
                                     <action selector="crementerPressed:" destination="lYN-UO-siv" eventType="touchUpInside" id="qEU-bm-Pue"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KoL-hw-v6b">
+                            <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KoL-hw-v6b">
                                 <rect key="frame" x="552" y="84" width="28" height="28"/>
                                 <animations/>
                                 <constraints>
@@ -137,7 +137,7 @@
                                     <action selector="crementerPressed:" destination="lYN-UO-siv" eventType="touchUpInside" id="f8J-Os-bJs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcG-sY-fbb">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcG-sY-fbb">
                                 <rect key="frame" x="127" y="508" width="48" height="48"/>
                                 <animations/>
                                 <constraints>
@@ -149,7 +149,7 @@
                                     <action selector="addImage:" destination="lYN-UO-siv" eventType="touchUpInside" id="Xj2-ph-mbM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReP-fy-BKW">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReP-fy-BKW">
                                 <rect key="frame" x="127" y="456" width="48" height="48"/>
                                 <animations/>
                                 <constraints>
@@ -192,16 +192,24 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add/Edit Recipe" id="4W6-kf-3KV">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="guC-b8-HOy"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="UfW-Il-4Wt"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="guC-b8-HOy">
+                            <connections>
+                                <action selector="cancelPressed:" destination="lYN-UO-siv" id="i3t-rQ-sK0"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="UfW-Il-4Wt">
+                            <connections>
+                                <action selector="saveRecipe:" destination="lYN-UO-siv" id="Cbr-62-tIP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="YCP-mN-87L" id="kll-UN-pkS"/>
                         <outlet property="ingredients" destination="FEh-dG-CNl" id="kRZ-Ka-n6n"/>
+                        <outlet property="instructions" destination="rPh-xv-BY9" id="Xpw-9w-uAZ"/>
                         <outlet property="minusButton" destination="KoL-hw-v6b" id="6hq-KZ-aY2"/>
                         <outlet property="name" destination="pvG-p2-02a" id="35e-If-nDa"/>
                         <outlet property="numberTimesMade" destination="tA2-SO-ETL" id="eLy-Hv-agR"/>
-                        <outlet property="recipe" destination="rPh-xv-BY9" id="MIl-6q-uPw"/>
                         <outlet property="recipeImage" destination="8qa-gb-8Oo" id="AzK-IE-rwf"/>
                     </connections>
                 </viewController>
