@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="z22-cy-NR3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -8,7 +8,7 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Main Table View Controller-->
+        <!--Recipe List-->
         <scene sceneID="aEk-YM-PvS">
             <objects>
                 <tableViewController id="p85-rS-d0s" customClass="MainTableViewController" customModule="Recipes_on_Fire" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="UNv-nJ-NeP" imageView="RiE-o7-ISW" style="IBUITableViewCellStyleDefault" id="vxA-AR-KrI">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="UNv-nJ-NeP" imageView="RiE-o7-ISW" style="IBUITableViewCellStyleDefault" id="vxA-AR-KrI">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vxA-AR-KrI" id="7Kv-a2-jSh">
@@ -43,7 +43,7 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <segue destination="lYN-UO-siv" kind="show" identifier="Add" id="dqD-q4-cXR"/>
+                                    <segue destination="lYN-UO-siv" kind="show" identifier="Edit" id="dqD-q4-cXR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -52,10 +52,10 @@
                             <outlet property="delegate" destination="p85-rS-d0s" id="F3K-iC-lLC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="j16-io-Phd">
+                    <navigationItem key="navigationItem" title="Recipe List" id="j16-io-Phd">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xe1-hm-aOQ">
                             <connections>
-                                <segue destination="lYN-UO-siv" kind="show" identifier="Edit" id="O4Y-yB-Heq"/>
+                                <segue destination="lYN-UO-siv" kind="show" identifier="Add" id="O4Y-yB-Heq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
