@@ -11,7 +11,7 @@ import CoreData
 import QuartzCore
 class AddViewController: UIViewController, NSFetchedResultsControllerDelegate,
                          UIImagePickerControllerDelegate, UINavigationControllerDelegate,
-                         UITextFieldDelegate {
+                         UITextViewDelegate {
     
     var recipe: Recipe? = nil
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -121,6 +121,14 @@ class AddViewController: UIViewController, NSFetchedResultsControllerDelegate,
     @IBAction func cancelPressed(sender: UIBarButtonItem) {
         navigationController?.popViewControllerAnimated(true)
 
+    }
+    
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        if textView.text == "Ingredients" ||
+            textView.text == "Instructions" {
+                textView.text = ""
+        }
+        return true
     }
 
 }
