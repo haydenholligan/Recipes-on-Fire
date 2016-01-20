@@ -8,9 +8,10 @@
 
 import UIKit
 import CoreData
-
+import QuartzCore
 class AddViewController: UIViewController, NSFetchedResultsControllerDelegate,
-                         UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+                         UIImagePickerControllerDelegate, UINavigationControllerDelegate,
+                         UITextFieldDelegate {
     
     var recipe: Recipe? = nil
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -18,23 +19,32 @@ class AddViewController: UIViewController, NSFetchedResultsControllerDelegate,
     @IBOutlet var name: UITextField!
     @IBOutlet var ingredients: UITextView!
     @IBOutlet var instructions: UITextView!
-    @IBOutlet var numberTimesMade: UILabel!
     
     @IBOutlet var recipeImage: UIImageView!
     
-    @IBOutlet var addButton: UIButton!
-    @IBOutlet var minusButton: UIButton!
+    
+    @IBOutlet var addFromCameraButton: UIButton!
+    @IBOutlet var addFromImageButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupAppearance()
         if recipe != nil {
             name.text = recipe?.name
             ingredients.text = recipe?.ingredients
             instructions.text = recipe?.instructions
-            numberTimesMade.text = "Made \(recipe?.numberTimesMade) times"
             recipeImage.image = UIImage(data: (recipe?.image)!)
         }
+    }
+    
+    func setupAppearance() {
+        ingredients.layer.cornerRadius = 4.0
+        ingredients.layer.borderColor = UIColor.blackColor().CGColor
+        ingredients.layer.borderWidth = 1.0
+        
+        instructions.layer.cornerRadius = 4.0
+        instructions.layer.borderColor = UIColor.blackColor().CGColor
+        instructions.layer.borderWidth = 1.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,9 +98,6 @@ class AddViewController: UIViewController, NSFetchedResultsControllerDelegate,
         recipe.instructions = instructions.text
         recipe.image = UIImagePNGRepresentation(recipeImage.image!)
         
-        let index = numberTimesMade.text!.startIndex.advancedBy(6)
-        recipe.numberTimesMade = Int(String(numberTimesMade.text![index]))
-        
         do {
             try managedObjectContext.save()
         } catch {
@@ -103,9 +110,6 @@ class AddViewController: UIViewController, NSFetchedResultsControllerDelegate,
         recipe?.ingredients = ingredients.text
         recipe?.instructions = instructions.text
         recipe!.image = UIImagePNGRepresentation(recipeImage.image!)
-
-        let index = numberTimesMade.text!.startIndex.advancedBy(6)
-        recipe?.numberTimesMade = Int(String(numberTimesMade.text![index]))
         
         do {
             try managedObjectContext.save()

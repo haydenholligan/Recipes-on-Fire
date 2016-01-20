@@ -17,7 +17,6 @@ extension Recipe {
     @NSManaged var name: String?
     @NSManaged var ingredients: String?
     @NSManaged var instructions: String?
-    @NSManaged var numberTimesMade: NSNumber?
     @NSManaged var image: NSData?
 
 }

@@ -5,9 +5,8 @@
         <attribute name="ingredients" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="instructions" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="numberTimesMade" optional="YES" attributeType="Integer 64" minValueString="0" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Recipe" positionX="-54" positionY="-9" width="128" height="120"/>
+        <element name="Recipe" positionX="-54" positionY="-9" width="128" height="105"/>
     </elements>
 </model>

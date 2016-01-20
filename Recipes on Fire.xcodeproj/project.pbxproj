@@ -18,6 +18,8 @@
 		400047B81C4DF79C008D404B /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400047B61C4DF79C008D404B /* Recipe.swift */; };
 		400047BC1C4DF88C008D404B /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400047BB1C4DF88C008D404B /* AddViewController.swift */; };
 		400047BE1C4DF8A9008D404B /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400047BD1C4DF8A9008D404B /* MainTableViewController.swift */; };
+		405F79DD1C4F4F110046DB2D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405F79DC1C4F4F110046DB2D /* QuartzCore.framework */; };
+		40AA64AD1C4E8241001D588A /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA64AC1C4E8241001D588A /* RecipeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		400047B61C4DF79C008D404B /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		400047BB1C4DF88C008D404B /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		400047BD1C4DF8A9008D404B /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		405F79DC1C4F4F110046DB2D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		40AA64AC1C4E8241001D588A /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				405F79DD1C4F4F110046DB2D /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,7 @@
 		400047781C4DDA85008D404B = {
 			isa = PBXGroup;
 			children = (
+				405F79DC1C4F4F110046DB2D /* QuartzCore.framework */,
 				400047B51C4DF79C008D404B /* Recipe+CoreDataProperties.swift */,
 				400047B61C4DF79C008D404B /* Recipe.swift */,
 				400047831C4DDA85008D404B /* Recipes on Fire */,
@@ -111,6 +117,7 @@
 				400047BB1C4DF88C008D404B /* AddViewController.swift */,
 				400047841C4DDA85008D404B /* AppDelegate.swift */,
 				400047881C4DDA85008D404B /* Main.storyboard */,
+				40AA64AC1C4E8241001D588A /* RecipeTableViewCell.swift */,
 				4000478E1C4DDA85008D404B /* Assets.xcassets */,
 				400047901C4DDA85008D404B /* LaunchScreen.storyboard */,
 				400047931C4DDA85008D404B /* Info.plist */,
@@ -274,6 +281,7 @@
 				400047B71C4DF79C008D404B /* Recipe+CoreDataProperties.swift in Sources */,
 				4000478D1C4DDA85008D404B /* Recipes_on_Fire.xcdatamodeld in Sources */,
 				400047BC1C4DF88C008D404B /* AddViewController.swift in Sources */,
+				40AA64AD1C4E8241001D588A /* RecipeTableViewCell.swift in Sources */,
 				400047851C4DDA85008D404B /* AppDelegate.swift in Sources */,
 				400047BE1C4DF8A9008D404B /* MainTableViewController.swift in Sources */,
 				400047B81C4DF79C008D404B /* Recipe.swift in Sources */,
@@ -503,6 +511,7 @@
 				400047AE1C4DDA86008D404B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		400047AF1C4DDA86008D404B /* Build configuration list for PBXNativeTarget "Recipes on FireTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +520,7 @@
 				400047B11C4DDA86008D404B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		400047B21C4DDA86008D404B /* Build configuration list for PBXNativeTarget "Recipes on FireUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +529,7 @@
 				400047B41C4DDA86008D404B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
