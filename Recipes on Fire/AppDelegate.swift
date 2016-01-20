@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         setupAppearance()
-        if (NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce")) {
+        if (!NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce")) {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "HasLaunchedOnce")
             let ingredients = "2 Cups flour \n4 teaspoons baking powder \n0.5 teaspoons salt \n0.25 cups sugar \n2 eggs, separated \n0.5 cups oil \n2 cups milk \nFresh berries \nIce cream \nMaple syrup"
             let instructions = "1. Sift the dry ingredients together in a large bowl \n2. Separate the eggs \n3. In small bowl, beat egg whites until stiff \n4. Mix together the egg yolks, milk and oil and stir slightly \n5. Add to dry ingredients and mix well \nFold in beaten egg whites \n6. Cook batter in waffle maker \n7. Top with berries, ice cream, and maple syrup \n8. Enjoy!"
