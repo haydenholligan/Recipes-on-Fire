@@ -26,6 +26,7 @@ class AddViewController: UIViewController, NSFetchedResultsControllerDelegate,
     @IBOutlet var addFromCameraButton: UIButton!
     @IBOutlet var addFromImageButton: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAppearance()
@@ -35,6 +36,12 @@ class AddViewController: UIViewController, NSFetchedResultsControllerDelegate,
             instructions.text = recipe?.instructions
             recipeImage.image = UIImage(data: (recipe?.image)!)
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        ingredients.setContentOffset(CGPointZero, animated: false)
+        instructions.setContentOffset(CGPointZero, animated: false)
     }
     
     func setupAppearance() {
@@ -96,7 +103,11 @@ class AddViewController: UIViewController, NSFetchedResultsControllerDelegate,
         recipe.name = name.text
         recipe.ingredients = ingredients.text
         recipe.instructions = instructions.text
-        recipe.image = UIImagePNGRepresentation(recipeImage.image!)
+        if (recipeImage.image != nil) {
+            recipe.image = UIImagePNGRepresentation(recipeImage.image!)
+        } else {
+            recipe.image = UIImagePNGRepresentation(UIImage(named: "Placeholder Dark")!)
+        }
         
         do {
             try managedObjectContext.save()

@@ -17,11 +17,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         setupAppearance()
+        if (NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce")) {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "HasLaunchedOnce")
+            let ingredients = "2 Cups flour \n4 teaspoons baking powder \n0.5 teaspoons salt \n0.25 cups sugar \n2 eggs, separated \n0.5 cups oil \n2 cups milk \nFresh berries \nIce cream \nMaple syrup"
+            let instructions = "1. Sift the dry ingredients together in a large bowl \n2. Separate the eggs \n3. In small bowl, beat egg whites until stiff \n4. Mix together the egg yolks, milk and oil and stir slightly \n5. Add to dry ingredients and mix well \nFold in beaten egg whites \n6. Cook batter in waffle maker \n7. Top with berries, ice cream, and maple syrup \n8. Enjoy!"
+            createNewRecipe("Dessert Waffles", ingredients: ingredients, instructions: instructions)
+        }
+        
         IQKeyboardManager.sharedManager().enable = true
         // Override point for customization after application launch.
         return true
     }
     
+    func createNewRecipe(name:String, ingredients:String, instructions:String) {
+        let entityDescription = NSEntityDescription.entityForName("Recipe", inManagedObjectContext: managedObjectContext)
+        let recipe = Recipe(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+        
+        recipe.name = name
+        recipe.ingredients = ingredients
+        recipe.instructions = instructions
+        recipe.image = UIImagePNGRepresentation(UIImage(named: "waffles")!)
+        
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print("Couldn't create new recipe")
+        }
+    }
+
     func setupAppearance() {
         let navigationStyle = UINavigationBar.appearance()
         navigationStyle.barTintColor = UIColor(red: 0.9, green: 0.1, blue: 0.0, alpha: 1.0)

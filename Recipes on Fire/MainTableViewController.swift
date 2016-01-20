@@ -26,39 +26,38 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
         return NSFetchedResultsController(fetchRequest: fetchRequest(), managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
     }
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         fetchedResultsController = getFetchedResultsController()
         fetchedResultsController.delegate = self
-        
-        do {
-            try fetchedResultsController.performFetch()
-        } catch {
-            print("Error performing initial fetch")
-            return
-        }
-        
         self.tableView.rowHeight = 100
-        self.tableView.reloadData()
+        
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+
+       tryPerformFetchAndReloadData()
     }
     
     
-    //Is this necessary??
-//    override func viewDidAppear(animated: Bool) {
-//        fetchedResultsController = getFetchedResultsController()
-//        fetchedResultsController.delegate = self
-//        
-//        do {
-//            try fetchedResultsController.performFetch()
-//        } catch {
-//            print("Failed to perform initial fetch")
-//        }
-//        
-//        super.viewDidAppear(animated)
-//        
-//        self.tableView.reloadData()
-//    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        fetchedResultsController = getFetchedResultsController()
+        fetchedResultsController.delegate = self
+        
+        tryPerformFetchAndReloadData()
+    }
+    
+    func tryPerformFetchAndReloadData() {
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print("Failed to perform initial fetch")
+        }
+        
+        self.tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -84,23 +83,33 @@ class MainTableViewController: UITableViewController, NSFetchedResultsController
         let recipe = fetchedResultsController.objectAtIndexPath(indexPath) as! Recipe
         
         cell.recipeLabel.text = recipe.name
+        if recipe.image != nil {
         cell.recipeImage.image = UIImage(data: recipe.image!)
-        
+        } else {
+            cell.recipeImage.image = UIImage(named: "Placeholder Dark")
+        }
         return cell
     }
     
+
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let managedObject = fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
             managedObjectContext.deleteObject(managedObject)
+            
             do {
                 try managedObjectContext.save()
             } catch {
                 print("Failed to delete item")
             }
             
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        if type == .Delete {
+            self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
         }
     }
     

@@ -125,9 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				405F79DC1C4F4F110046DB2D /* QuartzCore.framework */,
-				400047B51C4DF79C008D404B /* Recipe+CoreDataProperties.swift */,
 				405F79DE1C4F579C0046DB2D /* IQKeyboardManagerSwift */,
 				400047B61C4DF79C008D404B /* Recipe.swift */,
+				400047B51C4DF79C008D404B /* Recipe+CoreDataProperties.swift */,
 				400047831C4DDA85008D404B /* Recipes on Fire */,
 				4000479B1C4DDA86008D404B /* Recipes on FireTests */,
 				400047A61C4DDA86008D404B /* Recipes on FireUITests */,
@@ -546,6 +546,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.holligan.Recipes-on-Fire";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -557,6 +558,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ca.holligan.Recipes-on-Fire";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
